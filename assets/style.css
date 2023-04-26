@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+}
+
+/*START MEDIA QUERY*/
+@media screen and (min-width:500px) {
+    header {
+        align-items:end;
+    }
+}
+/*END MEDIA QUERY*/
+
+body{
+    background: lightblue;
+}
+
+.content{
+    width: 50%;
+    background: white;
+    border-radius: 5px;
+    margin: auto;
+    padding: 50px;
+}
+
+.info{
+    margin: 20px auto;
+}
+
+.content .title{
+    height: 60%;
+    width: 100%;
+    border-bottom: 1px solid darkblue;
+    display: flex;
+    padding: 15px 35px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.content .buttons{
+    height: 60%;
+    display: flex;
+    margin: auto;
+    justify-content: flex-end;
+    padding: 10px 35px;
+    border-top: 1px solid darkblue;
+}
+
+.content .buttons button{
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    border: 2px solid transparent;
+    background: lightblue;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*BUTTONS*/
+.start-btn,
+.content{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start-btn button{
+    font-size: 25px;
+    font-weight: bold;
+    color: lightblue;
+    padding: 15px 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
+/*END BUTTONS*/
+
+.buttons button.continue{
+    border-color: darkblue;
+    color: white;
+}
+
+.buttons button.continue:hover{
+    border-color: purple;
+    background: plum;
+    color: white;
+}
+
+.buttons button.restart{
+    border-color: darkblue;
+    color: white;
+}
+
+.buttons button.restart:hover{
+    border-color: red;
+    background: pink;
+    color: white;
+}
