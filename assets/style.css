@@ -17,7 +17,8 @@ body{
     background: lightblue;
 }
 
-.content{
+.start-box{
+    display: none;
     width: 50%;
     background: white;
     border-radius: 5px;
@@ -25,11 +26,107 @@ body{
     padding: 50px;
 }
 
+/*START QUIZ BOX*/
+.quiz-box{
+    width:50%;
+    height: 50%;
+    background: white;
+    border-radius: 5px;
+}
+
+.quiz-box header{
+    position: relative;
+    z-index: 99;
+    height: 70px;
+    padding: 0 30px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0px 3px 5px 1px darkblue;
+}
+
+.quiz-box header title{
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.quiz-box header .timer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+    height: 45px;
+    background: blue;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+    padding: 8 8px;
+}
+
+.quiz-box header .timer .timer-txt{
+    font-weight: bold;
+    font-size: 17px;
+    user-select: none;
+}
+
+.quiz-box header .timer .timer-time{
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    height: 30px;
+    width: 45px;
+    color: blue;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+    user-select: none;
+}
+
+.quiz-box section{
+    padding: 35px 30px 20px 30px;
+    background: white;
+}
+
+.quiz-box section .que-text{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.quiz-box section .answer-list{
+    padding: 20px 0;
+    display: block;
+}
+
+section .answer-list .answer{
+    background: lightblue;
+    border: 1px solid blue;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+section .answer-list .answer:hover{
+    color: white;
+    background-color: #6495ED;
+    border-color: #6495ED;
+}
+/*END QUIZ BOX*/
+
 .info{
     margin: 20px auto;
 }
 
-.content .title{
+/*START START BOX*/
+.start-box .quiz-title{
     height: 60%;
     width: 100%;
     border-bottom: 1px solid darkblue;
@@ -39,7 +136,7 @@ body{
     font-weight: bold;
 }
 
-.content .buttons{
+.start-box .buttons{
     height: 60%;
     display: flex;
     margin: auto;
@@ -48,7 +145,7 @@ body{
     border-top: 1px solid darkblue;
 }
 
-.content .buttons button{
+.start-box .buttons button{
     margin: 0 5px;
     height: 40px;
     width: 100px;
@@ -60,10 +157,13 @@ body{
     font-weight: bold;
     cursor: pointer;
 }
+/*END START BOX*/
+
 
 /*BUTTONS*/
 .start-btn,
-.content{
+.start-box,
+.quiz-box{
     position: absolute;
     top: 40%;
     left: 50%;
@@ -103,4 +203,73 @@ body{
     border-color: red;
     background: pink;
     color: white;
+}
+
+section .answer-list .answer:last-child{
+    margin-bottom: 0px;
+}
+
+.answer-list .answer .icon{
+    height: 26px;
+    width: 26px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 13px;
+    line-height: 24px;
+    pointer-events: none;
+}
+
+.answer-list .answer .icon.tick{
+    border-color: red;
+    color: magenta;
+    background: green;
+}
+
+.answer-list .answer .icon.cross{
+    border-color: orangered;
+    color: yellow;
+    background: orange;
+}
+
+.quiz-box footer{
+    height: 60px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quiz-box footer .total-que span{
+    display: flex;
+    user-select: none;
+}
+
+.quiz-box footer .total-que span p{
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.quiz-box footer .total-que span p:first-child{
+    padding-left: 0px;
+}
+
+footer .next-btn{
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    border: 1px solid orangered;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+footer .next-btn:hover{
+    background: orangered;
 }

@@ -5,14 +5,15 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./assets/style.css">
     <title>Quiz</title>
+    <script src="https://kit.fontawesome.com/cda8ad205f.js"></script>
 </head>
 
 <body>
 <div class="start-btn"><button>Start Quiz</button></div>
 
 <!--START info box-->
-<div class="content">
-    <div class="title">
+<div class="start-box">
+    <div class="quiz-title">
         <span>THE QUIZ</span>
     </div>
     <div class="info">
@@ -25,6 +26,42 @@
 <button class="continue">Continue</button>
 <button class="restart">Restart</button>
     </div>
+</div>
+
+<div class="quiz-box">
+    <header>
+        <div class="title">Da quiz <3</div>
+    <div class="timer">
+        <div class="timer-txt">Time</div>
+        <div class="timer-time">15</div>
+    </div>
+</header>
+<section>
+<div class="que text">
+    <span>Put a question here</span>
+</div>
+<div class="answer-list">
+<div class="answer"><span>Answer</span>
+    <div class="correct"><i class="fa-solid fa-check" style="color: #00d60e;"></i></div>
+</div>
+
+<div class="answer"><span>Answer</span>
+    <div class="wrong"><i class="fa-solid fa-xmark" style="color: #c70000"></i></div>
+</div>
+
+<div class="answer"><span>Answer</span></div>
+
+
+<div class="answer"><span>Answer</span></div>
+</div>
+</section>
+
+<footer>
+    <div class="total-que">
+        <span><p>2</p>of<p>5</p>Questions</span>
+    </div>
+    <button class="next-btn">Next Question</button>
+</footer>
 </div>
 
 </body>
