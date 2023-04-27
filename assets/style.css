@@ -2,8 +2,14 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Courier New', Courier, monospace, sans-serif;
+    font-family: 'main';
 }
+
+@font-face { 
+    font-family: "main"; 
+    src: url('https://dl.dropboxusercontent.com/s/0wmdk1q8rd1i0yu/Akira%20Expanded%20Demo.otf?dl=0'); 
+    format("truetype");
+   }
 
 /*START MEDIA QUERY*/
 @media screen and (min-width:500px) {
@@ -18,12 +24,14 @@ body{
 }
 
 .start-box{
-    display: none;
     width: 50%;
     background: white;
     border-radius: 5px;
     margin: auto;
     padding: 50px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
 }
 
 /*START QUIZ BOX*/
@@ -32,6 +40,9 @@ body{
     height: 50%;
     background: white;
     border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
 }
 
 .quiz-box header{
@@ -44,7 +55,8 @@ body{
     align-items: center;
     justify-content: space-between;
     border-radius: 5px 5px 0 0;
-    box-shadow: 0px 3px 5px 1px darkblue;
+    box-shadow: 0px 4px 8px 0 cornflowerblue,
+                0px 6px 20px 0 blue;
 }
 
 .quiz-box header title{
@@ -163,11 +175,14 @@ section .answer-list .answer:hover{
 /*BUTTONS*/
 .start-btn,
 .start-box,
-.quiz-box{
+.quiz-box,
+.result-box{
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0px 4px 8px 0 cornflowerblue,
+                0px 6px 20px 0 blue;
 }
 
 .start-btn button{
@@ -195,8 +210,9 @@ section .answer-list .answer:hover{
 }
 
 .buttons button.restart{
-    border-color: darkblue;
+    border-color: white;
     color: white;
+    background-color:#6495ED;
 }
 
 .buttons button.restart:hover{
@@ -272,4 +288,59 @@ footer .next-btn{
 
 footer .next-btn:hover{
     background: orangered;
+}
+
+.result-box{
+    background: white;
+    width: 450px;
+    padding: 25px 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.result-box .icon{
+    font-size: 100px;
+    color: gold;
+    margin-botton: 10px;
+}
+
+.result-box .ta-da{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.result-box .score span{
+    display: flex;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.score span p{
+    font-weight: bold;
+    padding: 0 4px;
+    color: blue;
+}
+
+.result-box .buttons{
+    display: flex;
+    margin: 20px 0;
+}
+
+.result-box .buttons button{
+    margin: 0 10px;
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid #6495ED;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
