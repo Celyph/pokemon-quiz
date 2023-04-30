@@ -7,8 +7,7 @@
 
 @font-face { 
     font-family: "main"; 
-    src: url('https://dl.dropboxusercontent.com/s/0wmdk1q8rd1i0yu/Akira%20Expanded%20Demo.otf?dl=0'); 
-    format("truetype");
+    src: url('https://dl.dropboxusercontent.com/s/0wmdk1q8rd1i0yu/Akira%20Expanded%20Demo.otf?dl=0');
    }
 
 /*START MEDIA QUERY*/
@@ -23,7 +22,12 @@ body{
     background: lightblue;
 }
 
-.start-box{
+/*START START BOX*/
+.activeInfo{
+    pointer-events: auto;
+}
+
+.start_box{
     width: 50%;
     background: white;
     border-radius: 5px;
@@ -34,20 +38,59 @@ body{
     transform: translate(-50%, -50%) scale(0.9);
 }
 
+.start_box .quiz_title{
+    height: 60%;
+    width: 100%;
+    border-bottom: 1px solid darkblue;
+    display: flex;
+    padding: 10px 10px 15px 35px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.buttons{
+    height: 60%;
+    display: flex;
+    margin: auto;
+    justify-content: flex-end;
+    padding: 10px 35px;
+    border-top: 1px solid darkblue;
+}
+
+.buttons button{
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    border: 2px solid transparent;
+    background: lightblue;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.info{
+    color: black;
+}
+/*END START BOX*/
+
 /*START QUIZ BOX*/
-.quiz-box{
-    width:50%;
-    height: 50%;
+.quiz_box{
+    width: 50%;
     background: white;
     border-radius: 5px;
+    margin: auto;
+    padding: 50px;
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, -50%) scale(0.9);
+    transition: all 0.3s ease;
 }
 
-.quiz-box header{
+.quiz_box header{
     position: relative;
-    z-index: 99;
     height: 70px;
     padding: 0 30px;
     background: white;
@@ -59,13 +102,13 @@ body{
                 0px 6px 20px 0 blue;
 }
 
-.quiz-box header title{
+.quiz_box header title{
     font-size: 20px;
     font-weight: bold;
 
 }
 
-.quiz-box header .timer{
+.quiz_box header .timer{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -77,13 +120,13 @@ body{
     padding: 8 8px;
 }
 
-.quiz-box header .timer .timer-txt{
+.quiz_box header .timer .timer_txt{
     font-weight: bold;
     font-size: 17px;
     user-select: none;
 }
 
-.quiz-box header .timer .timer-time{
+.quiz_box header .timer .timer_time{
     font-size: 18px;
     font-weight: bold;
     background: white;
@@ -97,22 +140,22 @@ body{
     user-select: none;
 }
 
-.quiz-box section{
+.quiz_box section{
     padding: 35px 30px 20px 30px;
     background: white;
 }
 
-.quiz-box section .que-text{
+.quiz_box section .que_text{
     font-size: 25px;
     font-weight: bold;
 }
 
-.quiz-box section .answer-list{
+.quiz_box section .answer_list{
     padding: 20px 0;
     display: block;
 }
 
-section .answer-list .answer{
+section .answer_list .answer{
     background: lightblue;
     border: 1px solid blue;
     border-radius: 5px;
@@ -126,66 +169,53 @@ section .answer-list .answer{
     transition: all 0.3s ease;
 }
 
-section .answer-list .answer:hover{
+section .answer_list .answer:hover{
     color: white;
     background-color: #6495ED;
     border-color: #6495ED;
 }
+
+.quiz_box footer{
+    height: 60px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quiz_box footer .total_que span{
+    display: flex;
+    user-select: none;
+}
+
+.quiz_box footer .total_que span p{
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.quiz_box footer .total_que span p:first-child{
+    padding-left: 0px;
+}
+
 /*END QUIZ BOX*/
 
-.info{
-    margin: 20px auto;
-}
-
-/*START START BOX*/
-.start-box .quiz-title{
-    height: 60%;
-    width: 100%;
-    border-bottom: 1px solid darkblue;
-    display: flex;
-    padding: 15px 35px;
-    font-size: 40px;
-    font-weight: bold;
-}
-
-.start-box .buttons{
-    height: 60%;
-    display: flex;
-    margin: auto;
-    justify-content: flex-end;
-    padding: 10px 35px;
-    border-top: 1px solid darkblue;
-}
-
-.start-box .buttons button{
-    margin: 0 5px;
-    height: 40px;
-    width: 100px;
-    border: 2px solid transparent;
-    background: lightblue;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-/*END START BOX*/
-
-
 /*BUTTONS*/
-.start-btn,
-.start-box,
-.quiz-box,
-.result-box{
+.start_btn,
+.start_box,
+.quiz_box,
+.result-box
+{
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 4px 8px 0 cornflowerblue,
                 0px 6px 20px 0 blue;
+    transition: all 0.3s ease;
 }
 
-.start-btn button{
+.start_btn button{
     font-size: 25px;
     font-weight: bold;
     color: lightblue;
@@ -196,31 +226,64 @@ section .answer-list .answer:hover{
     background: white;
     cursor: pointer;
 }
-/*END BUTTONS*/
 
-.buttons button.continue{
-    border-color: darkblue;
+.buttons button.continue_btn{
+    display: none;
+    position: absolute;
+    right: 52%;
     color: white;
+    background-color:#6495ED;
+    font-size: 13px;
 }
 
-.buttons button.continue:hover{
+.buttons button.continue_btn:hover{
     border-color: purple;
     background: plum;
     color: white;
 }
 
-.buttons button.restart{
-    border-color: white;
+.buttons button.restart_btn{
+    display: none;
+    position: absolute;
+    right: 43%;
     color: white;
     background-color:#6495ED;
+    font-size: 13px;
 }
 
-.buttons button.restart:hover{
+.buttons button.restart_btn:hover{
     border-color: red;
     background: pink;
     color: white;
 }
 
+.next_btn{
+    position: absolute;
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
+    border: 1px solid darkblue;
+    cursor: pointer;
+    bottom: 22%;
+    left: 44%;
+    transition: all 0.3s ease;
+    display:none;
+}
+
+.next_btn:hover{
+    background: darkblue;
+}
+
+
+/*END BUTTONS*/
+
+/*START ANSWER LIST*/
 section .answer-list .answer:last-child{
     margin-bottom: 0px;
 }
@@ -247,49 +310,11 @@ section .answer-list .answer:last-child{
     color: yellow;
     background: orange;
 }
+/*END ANSWER LIST*/
 
-.quiz-box footer{
-    height: 60px;
-    width: 100%;
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
-.quiz-box footer .total-que span{
-    display: flex;
-    user-select: none;
-}
 
-.quiz-box footer .total-que span p{
-    font-weight: bold;
-    padding: 0 5px;
-}
-
-.quiz-box footer .total-que span p:first-child{
-    padding-left: 0px;
-}
-
-footer .next-btn{
-    height: 40px;
-    padding: 0 13px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    outline: none;
-    color: white;
-    background-color: red;
-    border-radius: 5px;
-    border: 1px solid orangered;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-footer .next-btn:hover{
-    background: orangered;
-}
-
+/*START RESULTS BOX*/
 .result-box{
     background: white;
     width: 450px;
@@ -307,7 +332,7 @@ footer .next-btn:hover{
 .result-box .icon{
     font-size: 100px;
     color: gold;
-    margin-botton: 10px;
+    margin-bottom: 10px;
 }
 
 .result-box .ta-da{
@@ -344,3 +369,4 @@ footer .next-btn:hover{
     cursor: pointer;
     transition: all 0.3s ease;
 }
+/*END RESULTS BOX*/

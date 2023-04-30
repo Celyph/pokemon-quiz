@@ -10,75 +10,82 @@
 </head>
 
 <body>
-<div class="start-btn"><button>Start Quiz</button></div>
+    <div class="start_btn"><button onclick="StartBox()">Start Quiz</button></div>
 
-<!--START info box-->
-<div class="start-box">
-    <div class="quiz-title">
-        <span>THE QUIZ</span>
+    <!--START info box-->
+    <div class="start_box" id="start_box">
+        <div class="quiz_title">
+            <span>QUIZ INFO</span>
+        </div>
+
+        <div class="info">
+            During this quiz you will answer questions in a specified time. You will get points based on correct
+            answers, and lose time for wrong answers.
+        </div>
+
+
     </div>
-    <div class="info">
-        During this quiz you will answer questions in a specified time. You will get points based on correct answers, and lose time for wrong answers.
-    </div>
-<!--END info box-->
 
-<!--Start Quiz Button-->
-<div class="buttons">
-<button class="continue">Continue</button>
-<button class="restart">Restart</button>
-    </div>
-</div>
-
-<div class="quiz-box">
-    <header>
-        <div class="title">Da quiz <3</div>
-    <div class="timer">
-        <div class="timer-txt">Time</div>
-        <div class="timer-time">15</div>
-    </div>
-</header>
-<section>
-<div class="que text">
-    <span>Put a question here</span>
-</div>
-<div class="answer-list">
-<div class="answer"><span>Answer</span>
-    <div class="correct"><i class="fa-solid fa-check" style="color: #00d60e;"></i></div>
-</div>
-
-<div class="answer"><span>Answer</span>
-    <div class="wrong"><i class="fa-solid fa-xmark" style="color: #c70000"></i></div>
-</div>
-
-<div class="answer"><span>Answer</span></div>
-
-
-<div class="answer"><span>Answer</span></div>
-</div>
-</section>
-
-<footer>
-    <div class="total-que">
-        <span><p>2</p>of<p>5</p>Questions</span>
-    </div>
-    <button class="next-btn">Next Question</button>
-</footer>
-</div>
-
-<div class="result-box">
-    <div class="icon">
-        <i class="fa-solid fa-crown"></i>
-    </div>
-    <div class="ta-da">Quiz sucessfully completed!</div>
-    <div class="score">
-        <span>You got <p>2</p> out of <p>5</p> questions correct.</span>
-    </div>
     <div class="buttons">
-        <button class="restart">Restart Quiz</button>
+        <button class="continue_btn" id="continue_button" onclick="Continue(); QuizBox()">Continue</button>
+        <button class="restart_btn" id="restart_button" onclick="HideBox()">Restart</button>
     </div>
-</div>
+
+    <div class="quiz_box" id="quiz_box">
+        <header>
+            <div class="title">Da quiz </div>
+                    <div class="timer">
+                        <div class="timer_txt">Time</div>
+                        <div class="timer_time">15</div>
+                    </div>
+        </header>
+        <section>
+            <div class="que_text">
+                <span>Put a question here</span>
+            </div>
+            <div class="answer_list">
+                <div class="answer"><span>Answer</span>
+                    <div class="correct"><i class="fa-solid fa-check" style="color: #00d60e;"></i></div>
+                </div>
+
+                <div class="answer"><span>Answer</span>
+                    <div class="wrong"><i class="fa-solid fa-xmark" style="color: #c70000"></i></div>
+                </div>
+
+                <div class="answer"><span>Answer</span></div>
+
+
+                <div class="answer"><span>Answer</span></div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="total_que">
+                <span>
+                    <p>2</p>of<p>5</p>Questions
+                </span>
+            </div>
+
+        </footer>
+    </div>
+
+    <button class="next_btn">Next Question</button>
+
+    <div class="result-box">
+        <div class="icon">
+            <i class="fa-solid fa-crown"></i>
+        </div>
+        <div class="ta-da">Quiz sucessfully completed!</div>
+        <div class="score">
+            <span>You got <p>2</p> out of <p>5</p> questions correct.</span>
+        </div>
+        <div class="buttons">
+            <button class="restart_btn">Restart Quiz</button>
+        </div>
+    </div>
 
 
 
 </body>
+
 </html>
