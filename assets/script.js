@@ -25,6 +25,7 @@ function Continue(){
 function QuizBox(){
     const quiz_box = document.getElementById("quiz_box");
        document.querySelector(".quiz_box").style = "display: block"; 
+
        quiz_box.style.opacity = 1;
 }
 
