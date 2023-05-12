@@ -97,7 +97,7 @@ function answerSelected(answer) {
     console.log("correct")
 
   }
-
+    
   else{
     time-=2
     answer.classList.add("wrong")
