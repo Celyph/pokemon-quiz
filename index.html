@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Quiz</title>
     <script src="https://kit.fontawesome.com/cda8ad205f.js"></script>
-    <script src="./assets/questions.js"></script>
-    <script src="./assets/script.js"></script>
+
 
 </head>
 
@@ -29,9 +28,11 @@
     </div>
 
     <div class="buttons">
-        <button class="continue_btn" id="continue_button" onclick="Continue(); QuizBox(); showQuestions(0); queCounter(que_numb);">Continue</button>
+        <button class="continue_btn" id="continue_button" onclick="Continue(); QuizBox(); showQuestions(que_count); queCounter(que_numb);">Continue</button>
         <button class="restart_btn" id="restart_button" onclick="HideBox()">Restart</button>
     </div>
+
+
 
     <div class="quiz_box" id="quiz_box">
         <header>
@@ -41,23 +42,27 @@
                         <div class="timer_time">15</div>
                     </div>
         </header>
+    
         <section>
             <div class="que_text">
             <!--<span>Which Pokemon is referred to as the Wish Pokemon?</span>-->
             </div>
             <div class="answer_list">
                 <!-- <div class="answer"><span>Whiscash</span>
-                    <div class="correct"><i class="fa-solid fa-check" style="color: #00d60e;"></i></div>
+                                <div class="wrong"><i class="fa-solid fa-xmark" style="color: #c70000"></i></div>
                 </div>
-
+    
                 <div class="answer"><span>Jirachi</span>
-                    <div class="wrong"><i class="fa-solid fa-xmark" style="color: #c70000"></i></div>
+                                    <div class="correct"><i class="fa-solid fa-check" style="color: #00d60e;"></i></div>
+    
                 </div>
-
+    
                 <div class="answer"><span>Staravia</span></div>
-
-
-                <div class="answer"><span>Shinx</span></div> -->
+                            <div class="wrong"><i class="fa-solid fa-xmark" style="color: #c70000"></i></div>
+    
+    
+                <div class="answer"><span>Shinx</span></div>
+                             <div class="wrong"><i class="fa-solid fa-xmark" style="color: #c70000"></i></div>!-->
             </div>
         </section>
 
@@ -84,7 +89,8 @@
         </div>
     </div>
 
-
+    <script src="./assets/questions.js"></script>
+    <script src="./assets/script.js"></script>
 
 </body>
 

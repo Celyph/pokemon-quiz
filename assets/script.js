@@ -1,9 +1,5 @@
-localStorage.setItem("fido", "pretend this is meaningful text");
-console.log(localStorage.getItem("fido"));
-
-for (let i = 0; i < 5; i++) {
-  console.log(localStorage.getItem("fido"));
-}
+const quiz_box = document.getElementById("quiz_box");
+let time = 15;
 
 function StartBox() {
   const start_box = document.getElementById("start_box");
@@ -20,12 +16,20 @@ function Continue() {
   document.querySelector(".start_btn").style = "display: none";
   document.querySelector(".start_box").style = "display: none";
   document.querySelector(".next_btn").style = "display: block";
+  let timer = setInterval(myTimer, 1000);
+  function myTimer() {
+    const d = document.querySelector(".timer_time");
+    d.innerHTML = time
+    time--
+    if (time < 0){
+      clearInterval(timer)
+    }
+  }
 }
 
 function QuizBox() {
-  const quiz_box = document.getElementById("quiz_box");
   document.querySelector(".quiz_box").style = "display: block";
-  quiz_box.style.opacity = 1;
+  quiz_box.style.display = "block";
 }
 
 function HideBox() {
@@ -53,30 +57,59 @@ function nextQuestion() {
   }
 }
 
+const answer_list = document.querySelector(".answer_list");
+ answer_list.addEventListener("click", function(event) {
+  const element = event.target;
+  console.log("kachow")
+  if (element.matches(".answer")) {
+    console.log("button worked")
+  }
+}); 
+
 function showQuestions(index) {
   const que_text = document.querySelector(".que_text");
-  const answer_list = document.querySelector(".answer_list");
-  let que_tag ="<span>" + questions[index].numb + ". " + questions[index].question + "</span>";
-  let answer_tag = '<div class="answer">' + questions[index].options[0] + "<span></span></div>" 
-                + '<div class="answer">' + questions[index].options[1] + "<span></span></div>" 
-                + '<div class="answer">' + questions[index].options[2] + "<span></span></div>"
-                + '<div class="answer">' + questions[index].options[3] + "<span></span></div>";
+
+  let que_tag = "<span>" + questions[index].numb + ". " + questions[index].question + "</span>";
+  let answer_tag ='<button class="answer ans1">' + questions[index].options[0] + "<span></span></button>" 
+                + '<button class="answer ans2">' + questions[index].options[1] + "<span></span></button>" 
+                + '<button class="answer ans3">' + questions[index].options[2] + "<span></span></button>"
+                + '<button class="answer ans4">' + questions[index].options[3] + "<span></span></button>";
+              //  let answerBtns = document.querySelectorAll(".answer")
+              //  for (let i = 0; i < answerBtns.length; i++) {
+              //   answerBtns[i].addEventListener("click", console.log(this))
+                
+              //  }
   que_text.innerHTML = que_tag;
   answer_list.innerHTML = answer_tag;
-  const answer = answer_list.querySelectorAll(".answer");
-  for (let index = 0; index < answer.length; i++) {
-    answer[i].setAttribute("onclick", "answerSelected(this");
+  const answer = document.querySelectorAll(".answer");
+  // for (let index = 0; index < answer.length; index++) {
+  //   answer[index].setAttribute("onclick", "answerSelected(this)");
+  // }
+}
+
+function answerSelected(answer) {
+  let userAns = answer.textContent;
+  let correctAns = questions[que_count].answer;
+  console.log(answer);
+
+  if(userAns == correctAns){
+    answer.classList.add("correct")
+    console.log("correct")
+
+  }
+
+  else{
+    time-=2
+    answer.classList.add("wrong")
   }
 }
 
-function optionsSelected(answer) {
-  let userAns = answer.textContent;
-  let correctAns = questions[que_count].answer;
-  console.log(userAns);
+function queCounter(que_count) {
+  const bottom_ques_count = quiz_box.querySelector(".total_que");
+  let totalQuestionCountTag = '<span><p>' + que_count + '</p>of<p>' + questions.length + '</p>Questions</span>';
+  bottom_ques_count.innerHTML = totalQuestionCountTag;
 }
 
-function queCounter(index) {
-  const bottom_ques_counter = quiz_box.querySelector(".total_que");
-  let totalQuestionCountTag = "<span><p>" + que_count + "</p>of<p>" + questions.length + "</p>Questions</span>";
-  bottom_ques_counter.innerHTML = totalQuestionCountTag;
-}
+
+
+
