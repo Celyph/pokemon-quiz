@@ -274,8 +274,8 @@ section .answer_list .answer:hover{
     border-radius: 5px;
     border: 1px solid darkblue;
     cursor: pointer;
-    bottom: 22%;
-    left: 44%;
+    bottom: 12%;
+    right: 24%;
     transition: all 0.3s ease;
     display:none;
 }
@@ -302,6 +302,15 @@ section .answer-list .answer:last-child{
     line-height: 24px;
     pointer-events: none;
 }
+
+.answer-list .answer.correct{
+    color: green;
+}
+
+.answer-list .answer.wrong{
+    color: red;
+}
+
 
 .answer-list .answer .icon.tick{
     border-color: red;
@@ -374,11 +383,3 @@ section .answer-list .answer:last-child{
     transition: all 0.3s ease;
 }
 /*END RESULTS BOX*/
-
-.wrong{
-    color: red;
-}
-
-.correct{
-    color: green;
-}
