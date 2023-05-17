@@ -7,7 +7,7 @@
 
 @font-face { 
     font-family: "main"; 
-    src: url('https://dl.dropboxusercontent.com/s/0wmdk1q8rd1i0yu/Akira%20Expanded%20Demo.otf?dl=0');
+    src: url('https://dl.dropboxusercontent.com/s/ny51a0i6xdg4ph7/LEMONMILK-Bold.otf?dl=0');
    }
 
 /*START MEDIA QUERY*/
@@ -23,9 +23,6 @@ body{
 }
 
 /*START START BOX*/
-.activeInfo{
-    pointer-events: auto;
-}
 
 .start_box{
     width: 50%;
@@ -43,9 +40,14 @@ body{
     width: 100%;
     border-bottom: 1px solid darkblue;
     display: flex;
-    padding: 10px 10px 15px 35px;
     font-size: 40px;
     font-weight: bold;
+    text-align: center;
+}
+
+.start_box .quiz_title span{
+    text-align: center;
+    margin-left: 35%;
 }
 
 .buttons{
@@ -73,6 +75,7 @@ body{
 
 .info{
     color: black;
+    text-align: center;
 }
 /*END START BOX*/
 
@@ -161,6 +164,7 @@ section .answer_list .answer{
     padding: 8px 15px;
     margin-bottom: 15px;
     font-size: 17px;
+    letter-spacing: 7px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -174,7 +178,7 @@ section .answer_list .answer:hover{
     border-color: #6495ED;
 }
 
-.answer-list .answer:last-child{
+.answer_list .answer:last-child{
     margin-bottom: 0px;
 
 }
@@ -208,7 +212,7 @@ section .answer_list .answer:hover{
 .start_btn,
 .start_box,
 .quiz_box,
-.result-box
+.result_box
 {
     position: absolute;
     top: 40%;
@@ -288,11 +292,11 @@ section .answer_list .answer:hover{
 /*END BUTTONS*/
 
 /*START ANSWER LIST*/
-section .answer-list .answer:last-child{
+section .answer_list .answer:last-child{
     margin-bottom: 0px;
 }
 
-.answer-list .answer .icon{
+.answer_list .answer .icon{
     height: 26px;
     width: 26px;
     border: 2px solid transparent;
@@ -303,22 +307,26 @@ section .answer-list .answer:last-child{
     pointer-events: none;
 }
 
-.answer-list .answer.correct{
-    color: green;
+.answer_list .answer.correct{
+    color: darkgreen;
+    background: lightgreen;
+    border-color: darkgreen;
 }
 
-.answer-list .answer.wrong{
-    color: red;
+.answer_list .answer.wrong{
+    color: darkred;
+    background: lightcoral;
+    border-color: darkred;
 }
 
 
-.answer-list .answer .icon.tick{
+.answer_list .answer .icon.tick{
     border-color: red;
     color: magenta;
     background: green;
 }
 
-.answer-list .answer .icon.cross{
+.answer_list .answer .icon.cross{
     border-color: orangered;
     color: yellow;
     background: orange;
@@ -328,49 +336,54 @@ section .answer-list .answer:last-child{
 
 
 /*START RESULTS BOX*/
-.result-box{
+.result_box{
     background: white;
-    width: 450px;
-    padding: 25px 30px;
+    width: 50%;
+    padding: 15px 20px;
     border-radius: 5px;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
+    justify-content: center;
+    flex-direction: row;
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, -50%) scale(0.9);
 }
 
-.result-box .icon{
+.result_box .icon{
     font-size: 100px;
     color: gold;
     margin-bottom: 10px;
+    margin-left: 40%;
 }
 
-.result-box .ta-da{
+.result_box .ta-da{
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
 }
 
-.result-box .score span{
+.result_box .score span{
     display: flex;
-    margin: 10px 0;
+    margin-top: 7%;
+    margin-left: 7%;
     font-size: 18px;
+    text-align: center;
 }
 
 .score span p{
     font-weight: bold;
-    padding: 0 4px;
+    padding: 0 4px 0 4px;
     color: blue;
+    text-align: center;
+    display: flex;
 }
 
-.result-box .buttons{
+.result_box .buttons{
     display: flex;
     margin: 20px 0;
 }
 
-.result-box .buttons button{
+.result_box .buttons button{
     margin: 0 10px;
     height: 40px;
     padding: 0 20px;

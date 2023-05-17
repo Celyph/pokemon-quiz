@@ -11,7 +11,7 @@ let questions = [
         ]
     },
 
-{ 
+{
     numb: 2,
     question: "How many pure Rock type Pokemon are there?",
     answer: "9",

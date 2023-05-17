@@ -1,9 +1,11 @@
 const quiz_box = document.getElementById("quiz_box");
+const result_box = document.querySelector(".result_box");
+const restart_quiz = result_box.querySelector(".buttons restart_btn");
+const next_btn = quiz_box.querySelector(".next_btn");
 let time = 15;
 
 function StartBox() {
   const start_box = document.getElementById("start_box");
-  start_box.classList.add("activeInfo");
   start_box.style.opacity = 1;
   document.querySelector(".start_btn").style = "display: none";
   document.querySelector(".info").style = "display: block";
@@ -17,7 +19,7 @@ function Continue() {
   document.querySelector(".start_box").style = "display: none";
   document.querySelector(".continue_btn").style = "display: none";
   document.querySelector(".restart_btn").style = "display: none";
-  document.querySelector(".next_btn").style = "display: block";
+  document.querySelector(".next_btn").style = "display: none";
 
   let timer = setInterval(myTimer, 1000);
   function myTimer() {
@@ -44,10 +46,34 @@ function HideBox() {
   document.querySelector(".next_btn").style = "display: none";
 }
 
+function showResultBox() {
+  result_box.style.opacity = 1;
+  document.querySelector(".start_btn").style = "display: none";
+  document.querySelector(".start_box").style = "display: none";
+  document.querySelector(".quiz_box").style = "display: none";
+  document.querySelector(".next_btn").style = "display: none";
+  const scoreText = result_box.querySelector(".score");
+  if(userScore > 3){
+      let scoreTag = '<span>You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p> questions correct. Good job!</span>';
+      scoreText.innerHTML = scoreTag;
+      }
+
+else if(userScore > 1){
+    let scoreTag = '<span>You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p> questions correct. Nice!</span>';
+    scoreText.innerHTML = scoreTag;
+    }
+
+else{
+    let scoreTag = '<span>You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p> questions correct. DO BETTER! I BELIEVED IN YOU!</span>';
+    scoreText.innerHTML = scoreTag;
+    }
+}
+
 let que_count = 0;
 let que_numb = 1;
+let userScore = 0;
 
-const next_btn = quiz_box.querySelector(".next_btn");
+
 
 function nextQuestion() {
   if (que_count < questions.length - 1) {
@@ -57,7 +83,10 @@ function nextQuestion() {
     queCounter(que_numb);
   } else {
     console.log("Quiz finished!");
+    showResultBox();
+
   }
+  next_btn.style.display = "none"
 }
 
 const answer_list = document.querySelector(".answer_list");
@@ -79,19 +108,35 @@ function showQuestions(index) {
   }
 }
 
+let tickIcon = '<div class="correct"><i class="fa-solid fa-check" style="color: #007D11; font-size: 17px;"></i></div>';
+let crossIcon = '<div class="wrong"><i class="fa-solid fa-xmark" style="color: #c70000"></i></div>';
+
 function answerSelected(answer) {
   let userAns = answer.textContent;
   let correctAns = questions[que_count].answer;
+  let allAnswers = answer_list.children.length;
 
   if(userAns == correctAns){
-    answer.classList.add("correct")
-    console.log("correct")
+    userScore += 1;
+    console.log(userScore);
+    answer.classList.add("correct");
+    console.log("correct");
+    answer.insertAdjacentHTML("beforeend", tickIcon);
   }
   else{
     time-=2
-    answer.classList.add("wrong")
-    console.log("wrong")
+    answer.classList.add("wrong");
+    console.log("wrong");
+    answer.insertAdjacentHTML("beforeend", crossIcon)
+
+    for (let i = 0; i < allAnswers; i++) {
+      if(answer_list.children[i].textContent == correctAns){
+        answer_list.children[i].setAttribute("class", "answer correct");
+        answer_list.children[i].insertAdjacentHTML("beforeend", tickIcon);
+      }
+    }
   }
+  next_btn.style.display = "block";
 }
 
 function queCounter(que_count) {
