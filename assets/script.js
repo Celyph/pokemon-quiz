@@ -68,7 +68,7 @@ else{
     scoreText.innerHTML = scoreTag;
     }
 }
-
+ 
 let que_count = 0;
 let que_numb = 1;
 let userScore = 0;
