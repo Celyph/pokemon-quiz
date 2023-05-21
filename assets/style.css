@@ -250,21 +250,6 @@ section .answer_list .answer:hover{
     color: white;
 }
 
-.buttons button.restart_btn{
-    display: none;
-    position: absolute;
-    right: 43%;
-    color: white;
-    background-color:#6495ED;
-    font-size: 13px;
-}
-
-.buttons button.restart_btn:hover{
-    border-color: red;
-    background: pink;
-    color: white;
-}
-
 .next_btn{
     position: absolute;
     height: 40px;

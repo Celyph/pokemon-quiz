@@ -29,7 +29,6 @@
 
     <div class="buttons">
         <button class="continue_btn" id="continue_button" onclick="Continue(); QuizBox(); showQuestions(que_count); queCounter(que_numb);">Continue</button>
-        <button class="restart_btn" id="restart_button" onclick="HideBox()">Restart</button>
     </div>
 
 
@@ -76,7 +75,7 @@
 
     <button class="next_btn" onclick="nextQuestion()">Next Question</button>
 
-    <div class="result_box">
+    <div class="result_box" onload=showScores()>
         <div class="icon">
             <i class="fa-solid fa-crown"></i>
         </div>
@@ -84,11 +83,7 @@
         <div class="score">
             <!-- <span>You got <p>2</p> out of <p>5</p> questions correct.</span> -->
         </div>
-        <div class="buttons">
-            <button class="restart_btn">Restart Quiz</button>
-        </div>
     </div>
-
     <script src="./assets/questions.js"></script>
     <script src="./assets/script.js"></script>
 

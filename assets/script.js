@@ -1,6 +1,5 @@
 const quiz_box = document.getElementById("quiz_box");
 const result_box = document.querySelector(".result_box");
-const restart_quiz = result_box.querySelector(".buttons restart_btn");
 const next_btn = quiz_box.querySelector(".next_btn");
 let time = 15;
 
@@ -10,7 +9,6 @@ function StartBox() {
   document.querySelector(".start_btn").style = "display: none";
   document.querySelector(".info").style = "display: block";
   document.querySelector(".continue_btn").style = "display: block";
-  document.querySelector(".restart_btn").style = "display: none";
 }
 
 function Continue() {
@@ -18,7 +16,6 @@ function Continue() {
   document.querySelector(".start_btn").style = "display: none";
   document.querySelector(".start_box").style = "display: none";
   document.querySelector(".continue_btn").style = "display: none";
-  document.querySelector(".restart_btn").style = "display: none";
   document.querySelector(".next_btn").style = "display: none";
 
   let timer = setInterval(myTimer, 1000);
@@ -84,6 +81,7 @@ function nextQuestion() {
   } else {
     console.log("Quiz finished!");
     showResultBox();
+    localStorage.setItem("scores", userScore)
 
   }
   next_btn.style.display = "none"
@@ -144,7 +142,3 @@ function queCounter(que_count) {
   let totalQuestionCountTag = '<span><p>' + que_count + '</p>of<p>' + questions.length + '</p>Questions</span>';
   bottom_ques_count.innerHTML = totalQuestionCountTag;
 }
-
-
-
-
