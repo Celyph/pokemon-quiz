@@ -3,6 +3,7 @@ const result_box = document.querySelector(".result_box");
 const next_btn = quiz_box.querySelector(".next_btn");
 let time = 15;
 
+//Shows quiz info box when start button is pressed
 function StartBox() {
   const start_box = document.getElementById("start_box");
   start_box.style.opacity = 1;
@@ -11,6 +12,7 @@ function StartBox() {
   document.querySelector(".continue_btn").style = "display: block";
 }
 
+//Continues to the quiz when continue button is pressed, adding the timer as well
 function Continue() {
   const start_box = document.getElementById("start_box");
   document.querySelector(".start_btn").style = "display: none";
@@ -29,20 +31,13 @@ function Continue() {
   }
 }
 
+//Displays the quiz box
 function QuizBox() {
   document.querySelector(".quiz_box").style = "display: block";
   quiz_box.style.display = "block";
 }
 
-function HideBox() {
-  const start_box = document.getElementById("start_box");
-  start_box.style.opacity = 0;
-  document.querySelector(".start_btn").style = "display: flex";
-  document.querySelector(".start_box").style = "display: block";
-  document.querySelector(".quiz_box").style = "display: none";
-  document.querySelector(".next_btn").style = "display: none";
-}
-
+//Populates score box on load
 function showResultBox() {
   result_box.style.opacity = 1;
   document.querySelector(".start_btn").style = "display: none";
@@ -71,7 +66,7 @@ let que_numb = 1;
 let userScore = 0;
 
 
-
+//Allows the next question button to be pressed only if the question has been answered
 function nextQuestion() {
   if (que_count < questions.length - 1) {
     que_count++;
@@ -89,7 +84,7 @@ function nextQuestion() {
 
 const answer_list = document.querySelector(".answer_list");
 
-
+//Dynamically populates the answers to the quiz
 function showQuestions(index) {
   const que_text = document.querySelector(".que_text");
 
@@ -106,9 +101,11 @@ function showQuestions(index) {
   }
 }
 
+//Correct and incorrect icons for the answers
 let tickIcon = '<div class="correct"><i class="fa-solid fa-check" style="color: #007D11; font-size: 17px;"></i></div>';
 let crossIcon = '<div class="wrong"><i class="fa-solid fa-xmark" style="color: #c70000"></i></div>';
 
+//Logs 'correct/incorrect' in the console and the color scheme of the answer button depending on the answer selected.
 function answerSelected(answer) {
   let userAns = answer.textContent;
   let correctAns = questions[que_count].answer;
@@ -137,6 +134,7 @@ function answerSelected(answer) {
   next_btn.style.display = "block";
 }
 
+//Displays what question the user is on out of the total amount of questions
 function queCounter(que_count) {
   const bottom_ques_count = quiz_box.querySelector(".total_que");
   let totalQuestionCountTag = '<span><p>' + que_count + '</p>of<p>' + questions.length + '</p>Questions</span>';
